@@ -5,7 +5,7 @@ This is the backend service for my quick kubernetes demo, it can also be ran as 
 This can be ran locally as a docker container.
 ```
 pip3 install -r requirements.txt
-docker run -d -p 5000:5000 google-translate
+docker run -d -p 5001:5001 google-translate
 ```
 alternatively you can run: ```docker pull anners/google-translate```
 
