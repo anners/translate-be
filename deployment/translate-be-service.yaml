@@ -1,0 +1,12 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: translate-service
+spec:
+  selector:
+    app: hello-world
+    tier: be
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: http

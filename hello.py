@@ -6,7 +6,7 @@ app = Flask(__name__)
 @app.route('/')
 def usage():
     return'''
-        <p> http://localhost:5000/hello/LANGUAGE_CODE </p>
+        <p> http://HOSTNAME:5001/hello?lang=LANG_CODE </p>
         <pre>
         Language Code
         -------- ----
@@ -110,4 +110,4 @@ def not_found(error):
     return render_template('404.html')
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0')
+    app.run(host='0.0.0.0', port=5001)

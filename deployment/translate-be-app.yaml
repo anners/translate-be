@@ -1,26 +1,30 @@
 apiVersion: apps/v1beta1
 kind: Deployment
 metadata:
-  name: hello-world-deployment
+  name: translate-be
   labels:
     app: hello-world
 spec:
+  replicas: 3
   template:
     metadata:
       labels:
         app: hello-world
+        tier: be
+        track: dev
     spec:
       volumes:
       - name: gcp-key
         secret:
           secretName: translate-key
       containers:
-      - name: hello-world-translated
-        image: anners/google-translate:v1
+      - name: hello-world-translate
+        image: anners/translate-be:latest
         ports:
-        - containerPort: 80
+        - containerPort: 5001
+          name: http
         volumeMounts:
-        - name: translate-key
+        - name: gcp-key
           mountPath: /var/secrets/gcp
         env:
         - name: GOOGLE_APPLICATION_CREDENTIALS
