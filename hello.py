@@ -65,21 +65,6 @@ def usage():
         </pre>
         '''
 
-@app.route("/english")
-def hello():
-  return ""
-
-@app.route("/spanish")
-def spanish():
-    return "Hola Mundo"
-
-@app.route("/german")
-def german():
-    return "Hallo Welt"
-
-#@app.route("/hello/<name>")
-#def say_hello(name):
-#    return "Hello %s" % name
 
 @app.route("/hello/<language>")
 def translate_hello_world(language):
