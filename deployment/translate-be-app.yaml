@@ -19,7 +19,7 @@ spec:
           secretName: translate-key
       containers:
       - name: hello-world-translate
-        image: anners/translate-be:latest
+        image: anners/translate-be
         ports:
         - containerPort: 5001
           name: http
