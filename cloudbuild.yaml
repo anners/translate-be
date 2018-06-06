@@ -1,3 +1,9 @@
 steps:
-- name: 'gcr.io/cloud-builders/docker'
+- id: 'build'
+  name: 'gcr.io/cloud-builders/docker'
   args: ['build', '-t', 'anners/translate-fe:$TAG_NAME', '.']
+- id: 'security tests'
+  name: 'anners/translate-fe:$TAG_NAME'
+  args: ['./tests/bandit.py']
+  waitFor:
+    - 'build'
